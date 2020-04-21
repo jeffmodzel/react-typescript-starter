@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-const isLocalhost = Boolean(
+const isLocalhost: boolean = Boolean(
     window.location.hostname === "localhost" ||
         // [::1] is the IPv6 localhost address.
         window.location.hostname === "[::1]" ||
@@ -26,7 +26,7 @@ type Config = {
 export function register(config?: Config) {
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
         // The URL constructor is available in all browsers that support SW.
-        const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+        const publicUrl: any = new URL(process.env.PUBLIC_URL, window.location.href);
         if (publicUrl.origin !== window.location.origin) {
             // Our service worker won't work if PUBLIC_URL is on a different origin
             // from what our page is served on. This might happen if a CDN is used to
@@ -35,7 +35,7 @@ export function register(config?: Config) {
         }
 
         window.addEventListener("load", () => {
-            const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+            const swUrl: string = `${process.env.PUBLIC_URL}/service-worker.js`;
 
             if (isLocalhost) {
                 // This is running on localhost. Let's check if a service worker still exists or not.
@@ -62,7 +62,7 @@ function registerValidSW(swUrl: string, config?: Config) {
         .register(swUrl)
         .then((registration) => {
             registration.onupdatefound = () => {
-                const installingWorker = registration.installing;
+                const installingWorker: any = registration.installing;
                 if (installingWorker == null) {
                     return;
                 }
@@ -108,7 +108,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
     })
         .then((response) => {
             // Ensure service worker exists, and that we really are getting a JS file.
-            const contentType = response.headers.get("content-type");
+            const contentType: any = response.headers.get("content-type");
             if (response.status === 404 || (contentType != null && contentType.indexOf("javascript") === -1)) {
                 // No service worker found. Probably a different app. Reload the page.
                 navigator.serviceWorker.ready.then((registration) => {
